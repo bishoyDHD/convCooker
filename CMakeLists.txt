@@ -31,7 +31,7 @@ set(ROOT_LIBRARIES ${ROOT_LIBRARIES})
 #---Define useful ROOT functions and macros (e.g. ROOT_GENERATE_DICTIONARY)                                             
 include(${ROOT_USE_FILE})
 
-ROOT_GENERATE_DICTIONARY(dictDir ${CMAKE_CURRENT_SOURCE_DIR}/src/include/target.h LINKDEF ${CMAKE_CURRENT_SOURCE_DIR}/src/include/LinkDef.hh)
+ROOT_GENERATE_DICTIONARY(dictDir ${CMAKE_CURRENT_SOURCE_DIR}/src/include/cookerConv.h LINKDEF ${CMAKE_CURRENT_SOURCE_DIR}/src/include/LinkDef.hh)
 
 #add binary called "tgtGap" built from conv.cxx
 add_executable(tgtGap conv.cxx dictDir ${sources} ${headers})
