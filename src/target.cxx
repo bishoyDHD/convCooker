@@ -2,7 +2,7 @@
 #include "trekvar.h"
 
 Target::Target():usrEvtNo(0){
-  tgtInfo=new TargetInfo();
+  tgtInfo=new targetE36();
 }
 Target::~Target(){
 }
@@ -10,7 +10,7 @@ void Target::beginRoot(std::string name){
   hfile=new TFile(name.c_str(),"RECREATE");
   tree = new TTree("target", "from target");
   tree->SetAutoSave();
-  tree->Branch("tgtInfo","TargetInfo",(TObject**)&tgtInfo,256000,0);
+  tree->Branch("tgtInfo","targetE36",(TObject**)&tgtInfo,256000,0);
 }
 void Target::writeRoot(){
   tree->Write();

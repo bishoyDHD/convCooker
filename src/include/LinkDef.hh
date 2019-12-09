@@ -5,6 +5,6 @@
 #pragma link off all functions;
 
 #pragma link C++ class CRTBase+;
-#pragma link C++ class TargetInfo+;
+#pragma link C++ class targetE36+;
 
 #endif

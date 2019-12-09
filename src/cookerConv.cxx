@@ -4,6 +4,6 @@ CRTBase::CRTBase(){}
 CRTBase::~CRTBase(){}
 ClassImp(CRTBase);
 
-TargetInfo::TargetInfo(){}
-TargetInfo::~TargetInfo(){}
-ClassImp(TargetInfo);
+targetE36::targetE36(){}
+targetE36::~targetE36(){}
+ClassImp(targetE36);

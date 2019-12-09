@@ -16,7 +16,7 @@ public:
   void setEvtNo(int);
 private:
   int dummy=-1000;
-  TargetInfo* tgtInfo;
+  targetE36* tgtInfo;
   TTree* tree,*ptree;
   TFile* hfile;
   std::string fname;

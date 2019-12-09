@@ -12,7 +12,7 @@ class CRTBase: public TObject
   ClassDef(CRTBase,1);
 };
 
-class TargetInfo: public CRTBase {
+class targetE36: public CRTBase {
 public:
   UInt_t run;
   UInt_t eventNumber;
@@ -74,8 +74,8 @@ public:
   Int_t caseNum;
   Int_t kstopErrFlag;
   Int_t badEventFlag;*/
-  TargetInfo();
-  virtual ~TargetInfo();
-  ClassDef(TargetInfo,2);
+  targetE36();
+  virtual ~targetE36();
+  ClassDef(targetE36,2);
 };
 #endif
