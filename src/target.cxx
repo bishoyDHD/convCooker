@@ -1,4 +1,5 @@
 #include "cookerConv.h"
+#include <iostream>
 #include "trekvar.h"
 
 Target::Target():usrEvtNo(0){
@@ -83,6 +84,7 @@ void Target::convert(TFile* pFile){
   // Start filling the root tree and 
   // convert to the cooker version
   Int_t nentries=ptree->GetEntries();
+  int badEvt=0;
   if(usrEvtNo!=0) nentries=usrEvtNo;
   for(int i=0; i<nentries; i++){
     ptree->GetEntry(i);
@@ -95,7 +97,9 @@ void Target::convert(TFile* pFile){
     }else{
       tgtInfo->TOF1Gap=dummy;
       tgtInfo->TOF2Gap=dummy;
+      badEvt++;
     }
     tree->Fill();
   }
+  std::cout<<"  Number of bad events: "<<badEvt<<std::endl;
 }

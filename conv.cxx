@@ -18,6 +18,9 @@ int main(int argc,char** argv){
   std::string name=pargs->getName();
   Target* tgtconv=new Target();
   // Begin convertions process
+  std::cout<<" ***************************************\n";
+  std::cout<<"         Starting the converter         \n";
+  std::cout<<" ***************************************\n";
   tgtconv->beginRoot(name);
   tgtconv->convert(file);
   tgtconv->writeRoot();
