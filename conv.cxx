@@ -13,16 +13,27 @@ int main(int argc,char** argv){
   }
   // need activate parseArgs function
   pargs->parseArgs(argc,argv);
+  int ch=pargs->getCh(); // must be set
   std::string fileName=pargs->getFile();
   TFile *file=new TFile(fileName.c_str());
   std::string name=pargs->getName();
   Target* tgtconv=new Target();
+  mwpc*   mwpcconv=new mwpc();
   // Begin convertions process
   std::cout<<" ***************************************\n";
   std::cout<<"         Starting the converter         \n";
   std::cout<<" ***************************************\n";
-  tgtconv->beginRoot(name);
-  tgtconv->convert(file);
-  tgtconv->writeRoot();
+  switch(ch){
+    case 1:
+      tgtconv->beginRoot(name);
+      tgtconv->convert(file);
+      tgtconv->writeRoot();
+      break;
+    case 2:
+      mwpcconv->beginRoot(name);
+      mwpcconv->convert(file);
+      mwpcconv->writeRoot();
+      break;
+  }// end of switch statement
   return 0;
 }

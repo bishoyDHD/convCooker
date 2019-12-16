@@ -26,6 +26,7 @@ private:
   Int_t eventFlag;
   Int_t TOF1Gap;
   Int_t TOF2Gap;
+  /*
   Int_t extraTOF1;
   Float_t phiAngle;
   Float_t deltaPhiAngle;
@@ -79,6 +80,29 @@ private:
   Int_t kStopType;
   Int_t caseNum;
   Int_t kstopErrFlag;
-  Int_t badEventFlag;
+  Int_t badEventFlag;*/
+};
+class mwpc{
+public:
+  mwpc();
+  ~mwpc();
+  void beginRoot(std::string);
+  void writeRoot();
+  void convert(TFile*);
+  void setEvtNo(int);
+private:
+  int dummy=-1000;
+  mwpcE36* mwpcInfo;
+  TTree* tree,*ptree;
+  TFile* hfile;
+  std::string fname;
+  UInt_t usrEvtNo;
+  UInt_t run ;
+  UInt_t event;
+  Int_t nTracks;
+  Int_t fgapNumTof2;
+  Int_t nHits;
+  Double_t fTof2SP;
+  Double_t fVertSP;
 };
 #endif

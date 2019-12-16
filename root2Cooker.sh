@@ -7,7 +7,7 @@ echo "*****************************************************"
 echo "Please enter run number to be converted: "
 read rnum;
 echo "Begin conversion..."
-nice ./tgtGap -o run${rnum}conv.root $path_tgtfiles/Run${rnum}MS_out.root
+nice ./tgtGap -o run${rnum}conv.root $path_tgtfiles/basicDataType_${rnum}.root
 echo "conversion complete!"
 echo "moving file to appropriate directory"
 mv run${rnum}conv.root ${path_converted}

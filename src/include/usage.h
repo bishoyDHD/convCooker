@@ -16,9 +16,10 @@ public:
   inline void setName(std::string name){nameRoot=name;};
   std::string getName(){return nameRoot;};
   int getMaxN(){return nmax;};
+  int getCh(){return typeCh;};
 private:
   std::string fileName;
   std::string nameRoot;
-  int nmax;
+  int nmax,typeCh;
 };
 #endif
