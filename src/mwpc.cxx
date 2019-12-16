@@ -11,7 +11,7 @@ void mwpc::beginRoot(std::string name){
   hfile=new TFile(name.c_str(),"RECREATE");
   tree = new TTree("tracks", "from mwpc");
   tree->SetAutoSave();
-  tree->Branch("mwpInfo","mwpcE36",(TObject**)&mwpcInfo,256000,0);
+  tree->Branch("mwpcInfo","mwpcE36",(TObject**)&mwpcInfo,256000,0);
 }
 void mwpc::writeRoot(){
   tree->Write();
