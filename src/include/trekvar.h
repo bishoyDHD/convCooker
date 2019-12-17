@@ -88,7 +88,7 @@ public:
   ~mwpc();
   void beginRoot(std::string);
   void writeRoot();
-  void convert(TFile*);
+  void convert(TFile*,UInt_t);
   void setEvtNo(int);
 private:
   int dummy=-1000;

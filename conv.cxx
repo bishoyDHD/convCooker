@@ -17,6 +17,7 @@ int main(int argc,char** argv){
   std::string fileName=pargs->getFile();
   TFile *file=new TFile(fileName.c_str());
   std::string name=pargs->getName();
+  UInt_t runNo=pargs->getRunNo();
   Target* tgtconv=new Target();
   mwpc*   mwpcconv=new mwpc();
   // Begin convertions process
@@ -31,7 +32,7 @@ int main(int argc,char** argv){
       break;
     case 2:
       mwpcconv->beginRoot(name);
-      mwpcconv->convert(file);
+      mwpcconv->convert(file,runNo);
       mwpcconv->writeRoot();
       break;
   }// end of switch statement

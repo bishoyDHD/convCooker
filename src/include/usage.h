@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <TROOT.h>
 
 class usage{
 public:
@@ -17,9 +18,11 @@ public:
   std::string getName(){return nameRoot;};
   int getMaxN(){return nmax;};
   int getCh(){return typeCh;};
+  int getRunNo(){return runNo;};
 private:
   std::string fileName;
   std::string nameRoot;
   int nmax,typeCh;
+  UInt_t runNo;
 };
 #endif

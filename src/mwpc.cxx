@@ -18,7 +18,7 @@ void mwpc::writeRoot(){
   hfile->Write();
   hfile->Close();
 }
-void mwpc::convert(TFile* pFile){
+void mwpc::convert(TFile* pFile,UInt_t runNo){
   ptree=(TTree*)pFile->Get("tracks");
   // obtain variables from input ROOT files
   ptree->SetBranchAddress("run",&run);
@@ -33,8 +33,8 @@ void mwpc::convert(TFile* pFile){
   Int_t nentries=ptree->GetEntries();
   for(int i=0; i<nentries; i++){
     ptree->GetEntry(i);
-    mwpcInfo->run=run;
-    mwpcInfo->event=event;
+    mwpcInfo->run=runNo;
+    mwpcInfo->event=i;
     mwpcInfo->nTracks=nTracks;
     mwpcInfo->nHits=nHits;
     mwpcInfo->fgapNumTof2=fgapNumTof2;

@@ -10,6 +10,7 @@ void usage::printUsage(std::string name){
   std::cout<<" Usage:       "<<name<<" source"<<std::endl;
   std::cout<<" Must specify rootfile to be converted !!!"<<std::endl;
   std::cout<<" -n #number:  maximum number of events to be processed\n";
+  std::cout<<" -r runNo:    Need to set the run number otherwise won't run\n";
   std::cout<<" -f:          Name of the rootfile to be read in\n";
   std::cout<<" -t:          Name of type rootfile to be converted\n";
   std::cout<<"              For now 1=target & 2=MWPC\n";
@@ -29,6 +30,10 @@ bool usage::parseArgs(int argc, char** argv){
 	  break;
 	case 'n':
 	  nmax=std::stoul(argv[i+1]);
+	  i++;
+	  break;
+	case 'r':
+	  runNo=std::stoul(argv[i+1]);
 	  i++;
 	  break;
 	case 't':
