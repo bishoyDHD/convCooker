@@ -29,14 +29,14 @@ int main(int argc,char** argv){
       tgtconv->beginRoot(name);
       tgtconv->convert(file);
       tgtconv->writeRoot();
+      delete tgtconv;
       break;
     case 2:
       mwpcconv->beginRoot(name);
       mwpcconv->convert(file,runNo);
       mwpcconv->writeRoot();
+      delete mwpcconv;
       break;
   }// end of switch statement
-  delete tgtconv;
-  delete mwpcconv;
   return 0;
 }
