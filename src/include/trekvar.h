@@ -26,8 +26,8 @@ private:
   Int_t eventFlag;
   Int_t TOF1Gap;
   Int_t TOF2Gap;
-  /*
   Int_t extraTOF1;
+  /*
   Float_t phiAngle;
   Float_t deltaPhiAngle;
   Float_t chiS;
@@ -79,8 +79,8 @@ private:
   Int_t pruningMethod;
   Int_t kStopType;
   Int_t caseNum;
-  Int_t kstopErrFlag;
-  Int_t badEventFlag;*/
+  Int_t kstopErrFlag;*/
+  Int_t badEventFlag;
 };
 class mwpc{
 public:

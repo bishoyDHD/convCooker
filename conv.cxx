@@ -36,5 +36,7 @@ int main(int argc,char** argv){
       mwpcconv->writeRoot();
       break;
   }// end of switch statement
+  delete tgtconv;
+  delete mwpcconv;
   return 0;
 }

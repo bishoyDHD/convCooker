@@ -26,8 +26,8 @@ void Target::convert(TFile* pFile){
   ptree->SetBranchAddress("eventFlag",&eventFlag);
   ptree->SetBranchAddress("TOF1Gap",&TOF1Gap);
   ptree->SetBranchAddress("TOF2Gap",&TOF2Gap);
+  ptree->SetBranchAddress("extraTOF1",&extraTOF1);
   /*
-  ptree->SetBranchAddress("extraTOF1",extraTOF1);
   ptree->SetBranchAddress("phiAngle",phiAngle);
   ptree->SetBranchAddress("deltaPhiAngle",deltaPhiAngle);
   ptree->SetBranchAddress("chiS",chiS);
@@ -79,8 +79,8 @@ void Target::convert(TFile* pFile){
   ptree->SetBranchAddress("pruningMethod",pruningMethod);
   ptree->SetBranchAddress("kStopType",kStopType);
   ptree->SetBranchAddress("caseNum",caseNum);
-  ptree->SetBranchAddress("kstopErrFlag",kstopErrFlag);
-  ptree->SetBranchAddress("badEventFlag",badEventFlag);*/
+  ptree->SetBranchAddress("kstopErrFlag",kstopErrFlag);*/
+  ptree->SetBranchAddress("badEventFlag",&badEventFlag);
   // Start filling the root tree and 
   // convert to the cooker version
   Int_t nentries=ptree->GetEntries();
@@ -91,12 +91,16 @@ void Target::convert(TFile* pFile){
     tgtInfo->run=run;
     tgtInfo->eventNumber=eventNumber;
     tgtInfo->eventFlag=eventFlag;
-    if(TOF1Gap!=0 && TOF2Gap!=0){
+    if(badEventFlag==0){ // badEventFlag==0 => Good event!
       tgtInfo->TOF1Gap=TOF1Gap;
       tgtInfo->TOF2Gap=TOF2Gap;
+      tgtInfo->extraTOF1=extraTOF1;
+      tgtInfo->badEventFlag=badEventFlag;
     }else{
       tgtInfo->TOF1Gap=dummy;
       tgtInfo->TOF2Gap=dummy;
+      tgtInfo->extraTOF1=dummy;
+      tgtInfo->badEventFlag=dummy;
       badEvt++;
     }
     tree->Fill();
