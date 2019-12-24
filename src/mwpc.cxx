@@ -4,8 +4,12 @@
 
 mwpc::mwpc():usrEvtNo(0){
   mwpcInfo=new mwpcE36();
+  ptree=NULL;
 }
 mwpc::~mwpc(){
+  std::cout<<"*********************************\n";
+  std::cout<<" ---- Exiting MWPC converter ----\n";
+  std::cout<<"*********************************\n";
 }
 void mwpc::beginRoot(std::string name){
   hfile=new TFile(name.c_str(),"RECREATE");

@@ -4,8 +4,12 @@
 
 Target::Target():usrEvtNo(0){
   tgtInfo=new targetE36();
+  ptree=NULL;
 }
 Target::~Target(){
+  std::cout<<"***********************************\n";
+  std::cout<<" ---- Exiting Target converter ----\n";
+  std::cout<<"***********************************\n";
 }
 void Target::beginRoot(std::string name){
   hfile=new TFile(name.c_str(),"RECREATE");
