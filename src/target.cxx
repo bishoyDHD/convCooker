@@ -30,10 +30,12 @@ void Target::convert(TFile* pFile){
   ptree->SetBranchAddress("eventFlag",&eventFlag);
   ptree->SetBranchAddress("TOF1Gap",&TOF1Gap);
   ptree->SetBranchAddress("TOF2Gap",&TOF2Gap);
+  ptree->SetBranchAddress("extraTOF1_size",&extraTOF1_size);
   ptree->SetBranchAddress("extraTOF1",&extraTOF1);
+  ptree->SetBranchAddress("vec_extraTOF1",&vec_extraTOF1);
+  ptree->SetBranchAddress("phiAngle",&phiAngle);
+  ptree->SetBranchAddress("deltaPhiAngle",&deltaPhiAngle);
   /*
-  ptree->SetBranchAddress("phiAngle",phiAngle);
-  ptree->SetBranchAddress("deltaPhiAngle",deltaPhiAngle);
   ptree->SetBranchAddress("chiS",chiS);
   ptree->SetBranchAddress("ndf",ndf);
   ptree->SetBranchAddress("reducedChiS",reducedChiS);
@@ -98,13 +100,19 @@ void Target::convert(TFile* pFile){
     if(badEventFlag==0){ // badEventFlag==0 => Good event!
       tgtInfo->TOF1Gap=TOF1Gap;
       tgtInfo->TOF2Gap=TOF2Gap;
+      tgtInfo->extraTOF1_size=extraTOF1_size;
       tgtInfo->extraTOF1=extraTOF1;
+      tgtInfo->vec_extraTOF1=vec_extraTOF1;
+      tgtInfo->phiAngle=phiAngle;
+      tgtInfo->deltaPhiAngle=deltaPhiAngle;
       tgtInfo->badEventFlag=badEventFlag;
     }else{
       tgtInfo->TOF1Gap=dummy;
       tgtInfo->TOF2Gap=dummy;
-      tgtInfo->extraTOF1=dummy;
+      tgtInfo->extraTOF1_size=dummy;
       tgtInfo->badEventFlag=dummy;
+      tgtInfo->phiAngle=dummy;
+      tgtInfo->deltaPhiAngle=dummy;
       badEvt++;
     }
     tree->Fill();

@@ -13,11 +13,11 @@ echo "Please enter detector conversion: 1. Target & 2. MWPC"
 read ch;
 echo "Begin conversion..."
 if [ $ch == 1 ]; then
-    nice ./tgtGap -o run${rnum}tgtConv.root -r ${rnum} -t ${ch} -f $path_tgtfiles/Run${rnum}MS_out.root
+    nice ./tgtGap -o run${rnum}tgtConv.root -t ${ch} -f $path_tgtfiles/Run${rnum}MS_out.root
     file1=run${rnum}tgtConv.root
 else
     if [ $ch == 2 ]; then
-        nice ./tgtGap -o run${rnum}mwpcConv.root -r ${rnum} -t ${ch} -f $path_mwpcfiles/basicDataType_${rnum}.root
+        nice ./tgtGap -o run${rnum}mwpcConv.root -t ${ch} -f $path_mwpcfiles/basicDataType_${rnum}.root
         file1=run${rnum}mwpcConv.root
     fi
 fi

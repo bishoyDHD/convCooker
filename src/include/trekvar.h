@@ -26,10 +26,13 @@ private:
   Int_t eventFlag;
   Int_t TOF1Gap;
   Int_t TOF2Gap;
-  Int_t extraTOF1;
-  /*
+  //Int_t extraTOF1;
+  Int_t extraTOF1_size;
+  std::vector<Int_t> *extraTOF1=0;
+  std::vector<std::vector<Int_t>> *vec_extraTOF1=0;
   Float_t phiAngle;
   Float_t deltaPhiAngle;
+  /*
   Float_t chiS;
   Int_t ndf;
   Float_t reducedChiS;
@@ -88,7 +91,7 @@ public:
   ~mwpc();
   void beginRoot(std::string);
   void writeRoot();
-  void convert(TFile*,UInt_t);
+  void convert(TFile*);
   void setEvtNo(int);
 private:
   int dummy=-1000;

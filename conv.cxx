@@ -33,7 +33,7 @@ int main(int argc,char** argv){
       break;
     case 2:
       mwpcconv->beginRoot(name);
-      mwpcconv->convert(file,runNo);
+      mwpcconv->convert(file);
       mwpcconv->writeRoot();
       delete mwpcconv;
       break;
