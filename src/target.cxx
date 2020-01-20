@@ -97,22 +97,15 @@ void Target::convert(TFile* pFile){
     tgtInfo->run=run;
     tgtInfo->eventNumber=eventNumber;
     tgtInfo->eventFlag=eventFlag;
-    if(badEventFlag==0){ // badEventFlag==0 => Good event!
-      tgtInfo->TOF1Gap=TOF1Gap;
-      tgtInfo->TOF2Gap=TOF2Gap;
-      tgtInfo->extraTOF1_size=extraTOF1_size;
-      tgtInfo->extraTOF1=extraTOF1;
-      tgtInfo->vec_extraTOF1=vec_extraTOF1;
-      tgtInfo->phiAngle=phiAngle;
-      tgtInfo->deltaPhiAngle=deltaPhiAngle;
-      tgtInfo->badEventFlag=badEventFlag;
-    }else{
-      tgtInfo->TOF1Gap=dummy;
-      tgtInfo->TOF2Gap=dummy;
-      tgtInfo->extraTOF1_size=dummy;
-      tgtInfo->badEventFlag=dummy;
-      tgtInfo->phiAngle=dummy;
-      tgtInfo->deltaPhiAngle=dummy;
+    tgtInfo->TOF1Gap=TOF1Gap;
+    tgtInfo->TOF2Gap=TOF2Gap;
+    tgtInfo->extraTOF1_size=extraTOF1_size;
+    tgtInfo->extraTOF1=extraTOF1;
+    tgtInfo->vec_extraTOF1=vec_extraTOF1;
+    tgtInfo->phiAngle=phiAngle;
+    tgtInfo->deltaPhiAngle=deltaPhiAngle;
+    tgtInfo->badEventFlag=badEventFlag;
+    if(badEventFlag>0){ // badEventFlag==0 => Good event!
       badEvt++;
     }
     tree->Fill();
