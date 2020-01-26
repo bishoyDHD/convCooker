@@ -37,7 +37,12 @@ public:
   Int_t fgapNumTof2;
   Int_t nHits;
   Double_t fTof2SP;
+  Double_t fTof1SP;
   Double_t fVertSP;
+  Double_t fSftSNx;
+  Double_t fSftSNy;
+  Double_t fSftSNz;
+  Double_t fVertMPhi;
   mwpcE36();
   virtual ~mwpcE36();
   ClassDef(mwpcE36,2);
