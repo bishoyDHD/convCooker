@@ -13,7 +13,7 @@ mwpc::~mwpc(){
 }
 void mwpc::beginRoot(std::string name){
   hfile=new TFile(name.c_str(),"RECREATE");
-  tree = new TTree("tracks", "from mwpc");
+  tree = new TTree("mwpcBasic", "from mwpc");
   tree->SetAutoSave();
   tree->Branch("mwpcInfo","mwpcE36",(TObject**)&mwpcInfo,256000,0);
 }
