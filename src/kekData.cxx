@@ -14,7 +14,7 @@ void kekData::beginRoot(std::string name){
   hfile=new TFile(name.c_str(),"RECREATE");
   tree=new TTree("data","From KEK datfile");
   tree->SetAutoSave();
-  h1M2=new TH1D("h1M2","Mass^2",5000,-7000,30000);
+  h1M2=new TH1D("h1M2","Mass^2",75,140,270);
 }
 void kekData::writeRoot(){
   tree->Write();
@@ -78,8 +78,8 @@ void kekData::convert(TFile* pfile){
   if(usrEvtNo!=0) nentries=usrEvtNo;
   for(int i=0; i<nentries; i++){
     ptree->GetEntry(i);
-    beta=flen/toft;
-    mass2=std::pow(p_gap,2)*(1/std::pow(beta,2)-1);
-    h1M2->Fill(mass2);
+    //beta=flen/toft;
+    //mass2=std::pow(p_gap,2)*(1/std::pow(beta,2)-1);
+    h1M2->Fill(p_gap);
   }
 }
