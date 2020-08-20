@@ -21,6 +21,10 @@ private:
   Int_t usrEvtNo;
   Double_t mass2,beta;
   TH1D* h1M2;
+  // declare some constants
+  double c=2.99792458e8;
+  double ns=1.e-9;
+  double cm=1e-2;
   // Declaration of leaf types
   Int_t   runnum;
   Int_t   ievent;
