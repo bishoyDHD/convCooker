@@ -1,6 +1,7 @@
 #include <iostream>
 #include "usage.h"
 #include "trekvar.h"
+#include "kekData.h"
 #define _USE_MATH_DEFINES
 
 //static TApplication *app = new TApplication("App", NULL, NULL);
@@ -18,8 +19,9 @@ int main(int argc,char** argv){
   TFile *file=new TFile(fileName.c_str());
   std::string name=pargs->getName();
   UInt_t runNo=pargs->getRunNo();
-  Target* tgtconv=new Target();
-  mwpc*   mwpcconv=new mwpc();
+  Target*  tgtconv=new Target();
+  mwpc*    mwpcconv=new mwpc();
+  kekData* kekconv=new kekData();
   // Begin convertions process
   std::cout<<" ***************************************\n";
   std::cout<<"         Starting the converter         \n";
@@ -36,6 +38,12 @@ int main(int argc,char** argv){
       mwpcconv->convert(file);
       mwpcconv->writeRoot();
       delete mwpcconv;
+      break;
+    case 3:
+      kekconv->beginRoot(name);
+      kekconv->convert(file);
+      kekconv->writeRoot();
+      delete kekconv;
       break;
   }// end of switch statement
   return 0;
