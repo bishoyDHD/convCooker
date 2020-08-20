@@ -79,7 +79,7 @@ void kekData::convert(TFile* pfile){
   for(int i=0; i<nentries; i++){
     ptree->GetEntry(i);
     beta=flen/toft;
-    mass2=std::pow(p_gap,2)/(1/std::pow(beta,2)-1);
+    mass2=std::pow(p_gap,2)*(1/std::pow(beta,2)-1);
     h1M2->Fill(mass2);
   }
 }
