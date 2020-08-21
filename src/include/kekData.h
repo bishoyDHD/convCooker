@@ -20,7 +20,8 @@ private:
   TTree* tree, *ptree;
   Int_t usrEvtNo;
   Double_t mass2,beta;
-  TH1D* h1M2;
+  TH1D* h1M2[2];
+  TH1D* h1Pgap[2];
   // declare some constants
   double c=2.99792458e8;
   double ns=1.e-9;
