@@ -20,7 +20,7 @@ void kekData::beginRoot(std::string name){
   h1Pgap[1]=new TH1D("h1Pmu","Muon Momentum",20,180,260);
   h2pid[0]=new TH2D("h1acadc", "AC ADC vs M^{2}",50,-7000,35000,25,0,10000);
   h2pid[1]=new TH2D("h1pgcadc","PGC ADC vs M^{2}",50,-7000,35000,25,0,10000);
-  h2M2vP=new TH2D("h2M2vP","Momentum vs M^{2}",50,-7000,35000,20,180,260);
+  h2M2vP=new TH2D("h2M2vP","Momentum vs M^{2}",50,-7000,35000,15,180,235);
 }
 void kekData::writeRoot(){
   tree->Write();
