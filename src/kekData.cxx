@@ -14,7 +14,7 @@ void kekData::beginRoot(std::string name){
   hfile=new TFile(name.c_str(),"RECREATE");
   tree=new TTree("data","From KEK datfile");
   tree->SetAutoSave();
-  h1M2=new TH1D("h1M2","Mass^2",5000,-7000,30000);
+  h1M2=new TH1D("h1M2","Mass^2",500,-7000,30000);
 }
 void kekData::writeRoot(){
   tree->Write();
