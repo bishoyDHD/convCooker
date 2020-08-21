@@ -24,6 +24,7 @@ private:
   TH1D* h1M2[2];
   TH1D* h1Pgap[2];
   TH2D* h2pid[2];
+  TH2D* h2M2vP;
   // declare some constants
   double c=2.99792458e8;
   double ns=1.e-9;
