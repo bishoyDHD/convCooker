@@ -18,6 +18,8 @@ void kekData::beginRoot(std::string name){
   h1M2[1]=new TH1D("h1M2cut","Mass^{2}",500,-7000,35000);
   h1Pgap[0]=new TH1D("h1Pgap","Gap Momentum",65,140,270);
   h1Pgap[1]=new TH1D("h1Pmu","Muon Momentum",65,140,270);
+  h2pid[0]=new TH2D("h1acadc", "AC ADC vs M^{2}",500,-7000,35000,500,0,10000);
+  h2pid[1]=new TH2D("h1pgcadc","PGC ADC vs M^{2}",500,-7000,35000,500,0,10000);
 }
 void kekData::writeRoot(){
   tree->Write();
@@ -86,6 +88,10 @@ void kekData::convert(TFile* pfile){
     h1M2[0]->Fill(mass2);
     h1Pgap[0]->Fill(p_gap);
     h1Pgap[1]->Fill(pmu);
-    if(pmu<230.0) h1M2[1]->Fill(mass2);
+    if(pmu<230.0){
+      h1M2[1]->Fill(mass2);
+      h2pid[0]->Fill(mass2,acadc);
+      h2pid[1]->Fill(mass2,pgcadc);
+    }
   }
 }
