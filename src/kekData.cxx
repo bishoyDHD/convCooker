@@ -16,8 +16,8 @@ void kekData::beginRoot(std::string name){
   tree->SetAutoSave();
   h1M2[0]=new TH1D("h1M2","Mass^{2}",500,-7000,35000);
   h1M2[1]=new TH1D("h1M2cut","Mass^{2}",500,-7000,35000);
-  h1Pgap[0]=new TH1D("h1Pgap","Gap Momentum",40,180,260);
-  h1Pgap[1]=new TH1D("h1Pmu","Muon Momentum",40,180,260);
+  h1Pgap[0]=new TH1D("h1Pgap","Gap Momentum",60,180,260);
+  h1Pgap[1]=new TH1D("h1Pmu","Muon Momentum",60,180,260);
   h2pid[0]=new TH2D("h1acadc", "AC ADC vs M^{2}",50,-7000,35000,25,0,10000);
   h2pid[1]=new TH2D("h1pgcadc","PGC ADC vs M^{2}",50,-7000,35000,25,0,10000);
   h2M2vP=new TH2D("h2M2vP","Momentum vs M^{2}",50,-7000,35000,15,180,235);
