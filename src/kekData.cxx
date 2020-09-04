@@ -4,6 +4,7 @@
 kekData::kekData(): usrEvtNo(0){
   tree=NULL;
   ptree=NULL;
+  kekccInfo=new kekcc();
 }
 kekData::~kekData(){
   std::cout<<"**************************************\n";
@@ -95,5 +96,56 @@ void kekData::convert(TFile* pfile){
       h2pid[1]->Fill(mass2,pgcadc);
       h2M2vP->Fill(mass2,p_gap);
     }
+    // Store variables into a cooker appropriate format
+    kekccInfo->runnum=runnum;
+    kekccInfo->ievent=ievent;
+    kekccInfo->runtype=runtype;
+    kekccInfo->mode=mode;
+    kekccInfo->mc_evid=mc_evid;
+    std::copy(std::begin(trigtype),std::end(trigtype),std::begin(kekccInfo->trigtype));
+    kekccInfo->fidg=fidg;
+    kekccInfo->TF1g=TF1g;
+    kekccInfo->TF2g=TF2g;
+    std::copy(std::begin(mc_part_ab),std::end(mc_part_ab),
+                           std::begin(kekccInfo->mc_part_ab));
+    std::copy(std::begin(mc_procfl),std::end(mc_procfl),std::end(kekccInfo->mc_procfl));
+    std::copy(std::begin(mc_pos),std::end(mc_pos),std::begin(kekccInfo->mc_pos));
+    kekccInfo->ktime=ktime;
+    std::copy(std::begin(kfib),std::end(kfib),std::begin(kekccInfo->kfib));
+    kekccInfo->gd_tgkcl=gd_tgkcl;
+    kekccInfo->gd_tgtgkdis=gd_tgtgkdis;
+    kekccInfo->tgpath=tgpath;
+    std::copy(std::begin(vtex),std::end(vtex),std::begin(kekccInfo->vtex));
+    kekccInfo->nfib=nfib;
+    std::copy(&tginfor[0][0],&tginfor[0][0]+100*3,&(kekccInfo->tginfor[0][0]));
+    std::copy(&tginfoi[0][0],&tginfoi[0][0]+100*3,&(kekccInfo->tginfoi[0][0]));
+    kekccInfo->ex_trver=ex_trver;
+    kekccInfo->vertr=vertr;
+    kekccInfo->trchi2=trchi2;
+    std::copy(std::begin(c2_pos),std::end(c2_pos),std::begin(kekccInfo->c2_pos));
+    std::copy(std::begin(c3_pos),std::end(c3_pos),std::begin(kekccInfo->c3_pos));
+    std::copy(std::begin(c4_pos),std::end(c4_pos),std::begin(kekccInfo->c4_pos));
+    std::copy(std::begin(dfid),std::end(dfid),std::begin(kekccInfo->dfid));
+    std::copy(std::begin(dtf2),std::end(dtf2),std::begin(kekccInfo->dtf2));
+    std::copy(std::begin(trsft),std::end(trsft),std::begin(kekccInfo->trsft));
+    std::copy(std::begin(trac),std::end(trac),std::begin(kekccInfo->trac));
+    std::copy(std::begin(trfidfib),std::end(trfidfib),std::begin(kekccInfo->trfidfib));
+    kekccInfo->p_gap=p_gap;
+    kekccInfo->pmu=pmu;
+    kekccInfo->ppi=ppi;
+    kekccInfo->calfidt=calfidt;
+    kekccInfo->toft=toft;
+    kekccInfo->flen=flen;
+    kekccInfo->mass=mass;
+    kekccInfo->act=act;
+    kekccInfo->acadc=acadc;
+    std::copy(std::begin(act_u),std::end(act_u),std::begin(kekccInfo->act_u));
+    std::copy(std::begin(act_d),std::end(act_d),std::begin(kekccInfo->act_d));
+    std::copy(std::begin(acadc_u),std::end(acadc_u),std::begin(kekccInfo->acadc_u));
+    std::copy(std::begin(acadc_d),std::end(acadc_d),std::begin(kekccInfo->acadc_d));
+    kekccInfo->pgct=pgct;
+    kekccInfo->pgcadc=pgcadc;
+    kekccInfo->chie=chie;
+    kekccInfo->chim=chim;
   }
 }

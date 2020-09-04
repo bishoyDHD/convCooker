@@ -6,6 +6,7 @@
 #include <vector>
 #include <TH1D.h>
 #include <TH2D.h>
+#include "cookerConv.h"
 
 class kekData{
 public:
@@ -15,6 +16,7 @@ public:
   void writeRoot();
   void setEvtNo();
   void convert(TFile*);
+  kekcc* kekccInfo;
 private:
   // Tree variables
   TFile* hfile;
