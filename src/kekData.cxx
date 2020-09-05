@@ -15,6 +15,7 @@ void kekData::beginRoot(std::string name){
   hfile=new TFile(name.c_str(),"RECREATE");
   tree=new TTree("data","From KEK datfile");
   tree->SetAutoSave();
+  tree->Branch("kekccInfo","kekcc",(TObject**)&kekccInfo,256000,0);
   h1M2[0]=new TH1D("h1M2","Mass^{2}",500,-7000,35000);
   h1M2[1]=new TH1D("h1M2cut","Mass^{2}",500,-7000,35000);
   h1Pgap[0]=new TH1D("h1Pgap","Gap Momentum",70,180,250);
