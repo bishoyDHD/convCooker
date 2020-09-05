@@ -148,5 +148,7 @@ void kekData::convert(TFile* pfile){
     kekccInfo->pgcadc=pgcadc;
     kekccInfo->chie=chie;
     kekccInfo->chim=chim;
+    kekccInfo->mass2=mass2;
+    tree->Fill();
   }
 }
