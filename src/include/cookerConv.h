@@ -47,7 +47,7 @@ public:
   virtual ~mwpcE36();
   ClassDef(mwpcE36,2);
 };
-class trekM2{
+class trekM2: public CRTBase{
 public:
   Int_t           run;
   Int_t           event;
