@@ -47,6 +47,20 @@ public:
   virtual ~mwpcE36();
   ClassDef(mwpcE36,2);
 };
+class trekM2{
+public:
+  Int_t           run;
+  Int_t           event;
+  std::vector<int>     *gapToF1;
+  std::vector<int>     *gapToF2;
+  std::vector<double>  *M2;
+  std::vector<double>  *vert_p;
+  std::vector<double>  *beta;
+  std::vector<double>  *Ep;
+  trekM2();
+  virtual ~trekM2();
+  ClassDef(trekM2,2);
+};
 class kekcc: public CRTBase{
 public:
   // Declaration of leaf types

@@ -21,11 +21,12 @@ int main(int argc,char** argv){
   UInt_t runNo=pargs->getRunNo();
   Target*  tgtconv=new Target();
   mwpc*    mwpcconv=new mwpc();
+  tofM2*   m2conv=new tofM2();
   kekData* kekconv=new kekData();
   // Begin convertions process
-  std::cout<<" ***************************************\n";
-  std::cout<<"         Starting the converter         \n";
-  std::cout<<" ***************************************\n";
+  std::cout<<"***************************************\n";
+  std::cout<<"        Starting the converter         \n";
+  std::cout<<"***************************************\n";
   switch(ch){
     case 1:
       tgtconv->beginRoot(name);
@@ -44,6 +45,12 @@ int main(int argc,char** argv){
       kekconv->convert(file);
       kekconv->writeRoot();
       delete kekconv;
+      break;
+    case 4:
+      m2conv->beginRoot(name);
+      m2conv->convert(file);
+      m2conv->writeRoot();
+      delete m2conv;
       break;
   }// end of switch statement
   return 0;

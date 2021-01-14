@@ -113,4 +113,28 @@ private:
   Double_t fSftSNz;
   Double_t fVertMPhi; // compare with target phi
 };
+class tofM2{
+public:
+  tofM2();
+  ~tofM2();
+  void beginRoot(std::string);
+  void writeRoot();
+  void convert(TFile*);
+  void setEvtNo(int);
+private:
+  int dummy=-1000;
+  std::string fname;
+  UInt_t usrEvtNo;
+  trekM2* m2Info;
+  TTree* tree,*ptree;
+  TFile* hfile;
+  Int_t           run;
+  Int_t           event;
+  std::vector<int>     *gapToF1;
+  std::vector<int>     *gapToF2;
+  std::vector<double>  *M2;
+  std::vector<double>  *vert_p;
+  std::vector<double>  *beta;
+  std::vector<double>  *Ep;
+};
 #endif

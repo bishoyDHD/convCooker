@@ -13,6 +13,7 @@
 #pragma link C++ class CRTBase+;
 #pragma link C++ class targetE36+;
 #pragma link C++ class mwpcE36+;
+#pragma link C++ class trekM2+;
 #pragma link C++ class kekcc+;
 
 #endif
