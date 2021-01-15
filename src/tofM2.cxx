@@ -31,7 +31,7 @@ void tofM2::convert(TFile* pFile){
   ptree->SetBranchAddress("gapToF2",&gapToF2);
   ptree->SetBranchAddress("M2",&M2);
   ptree->SetBranchAddress("vert_p",&vert_p);
-  ptree->SetBranchAddress("beta",&beta);
+  //ptree->SetBranchAddress("beta",&beta);
   ptree->SetBranchAddress("Ep",&Ep);
   // Start filling the root tree and
   // convert to the cooker version
@@ -46,7 +46,8 @@ void tofM2::convert(TFile* pFile){
     m2Info->gapToF2=gapToF2;
     m2Info->M2=M2;
     m2Info->vert_p=vert_p;
-    m2Info->beta=beta;
+    //m2Info->beta=beta;
     m2Info->Ep=Ep;
+    tree->Fill();
   }
 }
